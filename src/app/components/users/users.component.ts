@@ -12,6 +12,7 @@ export class UsersComponent implements OnInit {
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
+  enableAdd: boolean = true;
 
   constructor() { }
 
@@ -26,7 +27,8 @@ export class UsersComponent implements OnInit {
           street: '23 School st',
           city: 'Lynn',
           state: 'MA'
-        }
+        },
+        image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png'
       },
       {
         firstName: 'John',
@@ -36,13 +38,14 @@ export class UsersComponent implements OnInit {
           street: '50 Main st',
           city: 'Boston',
           state: 'MA'
-        }
+        },
+        image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png'
       }
     ];
 
     this.addUser({
       firstName: 'David',
-      lastName: 'Smith',
+      lastName: 'Smith'
     });
     this.loaded = true;
 
