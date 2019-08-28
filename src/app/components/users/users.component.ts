@@ -13,6 +13,8 @@ export class UsersComponent implements OnInit {
   showExtended: boolean = true;
   loaded: boolean = false;
   enableAdd: boolean = true;
+  currentClasses = {};
+  currentStyles = {};
 
   constructor() { }
 
@@ -28,7 +30,8 @@ export class UsersComponent implements OnInit {
           city: 'Lynn',
           state: 'MA'
         },
-        image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png'
+        image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png',
+        isActive: false
       },
       {
         firstName: 'John',
@@ -39,21 +42,37 @@ export class UsersComponent implements OnInit {
           city: 'Boston',
           state: 'MA'
         },
-        image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png'
+        image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png',
+        isActive: true
       }
     ];
 
     this.addUser({
       firstName: 'David',
-      lastName: 'Smith'
+      lastName: 'Smith',
     });
     this.loaded = true;
 
-
+    this.setCurrentClasses();
+    this.setCurrentStyles();
   }
 
   addUser(user: User) {
     this.users.push(user);
+  }
+
+  setCurrentClasses() {
+    this.currentClasses = {
+      'btn-success': this.enableAdd,
+      'big-text': this.showExtended
+    }
+  }
+
+  setCurrentStyles() {
+    this.currentStyles = {
+      'padding-top': this.showExtended ? '0' : '40px',
+      'font-size': this.showExtended ? '' : '40px'
+    }
   }
 
 }
