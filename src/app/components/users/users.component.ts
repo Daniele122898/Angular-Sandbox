@@ -8,11 +8,16 @@ import { User } from '../../models/User';
 })
 
 export class UsersComponent implements OnInit {
-
+  user: User = {
+    firstName: '',
+    lastName: '',
+    email: '',
+  };
   users: User[];
   showExtended: boolean = true;
   loaded: boolean = false;
-  enableAdd: boolean = true;
+  enableAdd: boolean = false;
+  showUserForm: boolean = false;
 
   constructor() { }
 
@@ -22,40 +27,39 @@ export class UsersComponent implements OnInit {
       {
         firstName: 'Kevin',
         lastName: 'Johnson',
-        age: 25,
-        address: {
-          street: '23 School st',
-          city: 'Lynn',
-          state: 'MA'
-        },
         isActive: false,
-        registered: new Date('01/02/2018 08:30:00')
+        registered: new Date('01/02/2018 08:30:00'),
+        hide: true,
+        email: 'kevin@gmail.com'
       },
       {
         firstName: 'John',
         lastName: 'Doe',
-        age: 30,
-        address: {
-          street: '50 Main st',
-          city: 'Boston',
-          state: 'MA'
-        },
         isActive: true,
-        registered: new Date('03/11/2017 01:30:00')
+        registered: new Date('03/11/2017 01:30:00'),
+        hide: true,
+        email: 'john@yahoo.com'
       }
     ];
 
-    this.addUser({
-      firstName: 'David',
-      lastName: 'Smith',
-      registered: new Date('03/01/2015 12:30:00')
-    });
     this.loaded = true;
-
   }
 
-  addUser(user: User) {
-    this.users.push(user);
+  //   addUser() {
+  //     this.user.isActive = true;
+  //     this.user.registered = new Date();
+  //     this.users.unshift(this.user);
+
+  //     this.user = {
+  //       firstName: '',
+  //       lastName: '',
+  //       email: ''
+  //     }
+  // }
+
+  onSubmit(e) {
+    e.preventDefault();
+    console.log("123");
   }
 
 }
