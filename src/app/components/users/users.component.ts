@@ -31,7 +31,9 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png',
-        isActive: false
+        isActive: false,
+        balance: 100,
+        registered: new Date('01/02/2018 08:30:00')
       },
       {
         firstName: 'John',
@@ -43,13 +45,17 @@ export class UsersComponent implements OnInit {
           state: 'MA'
         },
         image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-512.png',
-        isActive: true
+        isActive: true,
+        balance: 200,
+        registered: new Date('03/11/2017 01:30:00')
       }
     ];
 
     this.addUser({
       firstName: 'David',
       lastName: 'Smith',
+      balance: 200,
+      registered: new Date('03/01/2015 12:30:00')
     });
     this.loaded = true;
 
